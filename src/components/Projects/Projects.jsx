@@ -1,25 +1,17 @@
-// src/components/Projects/Projects.jsx - ตัวอย่างที่ต้องทำ
-import { useState } from 'react';
-import { ExternalLink, Github, Filter } from 'lucide-react';
-import ProjectCard from './ProjectCard';
-import { projects } from '../../data/portfolioData';
+// src/components/Projects/Projects.jsx
 import './Projects.css';
+import { useState } from 'react';
+import ProjectCard from './ProjectCard';
+import portfolioData, { categories } from '../../data/portfolioData';
 
 function Projects() {
-  const [filter, setFilter] = useState('all');
-  
-  // Get unique technologies for filter
-  const technologies = ['all', ...new Set(
-    projects.flatMap(project => project.technologies)
-  )];
-  
-  // Filter projects based on selected technology
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => 
-        project.technologies.includes(filter)
-      );
-  
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const filteredProjects =
+    selectedCategory === "All"
+      ? portfolioData
+      : portfolioData.filter((project) => project.category === selectedCategory);
+
   return (
     <section id="projects" className="projects section">
       <div className="container">
@@ -27,32 +19,28 @@ function Projects() {
         <p className="section-subtitle">
           Here are some of the projects I've worked on recently.
         </p>
-        
-        {/* Filter Buttons */}
-        <div className="project-filters">
-          {technologies.map(tech => (
+
+        {/* Category Filter */}
+        <div className="projects-filter">
+          {categories.map((cat) => (
             <button
-              key={tech}
-              className={`filter-btn ${filter === tech ? 'active' : ''}`}
-              onClick={() => setFilter(tech)}
+              key={cat}
+              className={`filter-btn ${
+                selectedCategory === cat ? "active" : ""
+              }`}
+              onClick={() => setSelectedCategory(cat)}
             >
-              {tech.charAt(0).toUpperCase() + tech.slice(1)}
+              {cat}
             </button>
           ))}
         </div>
-        
+
         {/* Projects Grid */}
         <div className="projects-grid">
-          {filteredProjects.map(project => (
+          {filteredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-        
-        {filteredProjects.length === 0 && (
-          <div className="no-projects">
-            <p>No projects found for this technology.</p>
-          </div>
-        )}
       </div>
     </section>
   );
