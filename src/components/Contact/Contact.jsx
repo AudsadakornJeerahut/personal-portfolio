@@ -155,7 +155,7 @@ function Contact() {
               <Mail size={24} />
               <div>
                 <h4>Email</h4>
-                <p>manman_u951@gmail.com</p>
+                <p>jeerahutaudsadakorn2003@gmail.com</p>
               </div>
             </div>
             
@@ -163,7 +163,7 @@ function Contact() {
               <Phone size={24} />
               <div>
                 <h4>Phone</h4>
-                <p>+66 0636546447</p>
+                <p>087-192-4106</p>
               </div>
             </div>
             
@@ -171,7 +171,7 @@ function Contact() {
               <MapPin size={24} />
               <div>
                 <h4>Location</h4>
-                <p>chiangmai, Thailand</p>
+                <p>Lamphun, Thailand</p>
               </div>
             </div>
             
@@ -179,7 +179,7 @@ function Contact() {
             <div className="social-links">
               <h4>Follow Me</h4>
               <div className="social-icons">
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/AudsadakornJeerahut" target="_blank" rel="noopener noreferrer">
                   <Github size={24} />
                 </a>
                 <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
